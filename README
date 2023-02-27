@@ -1,0 +1,6 @@
+Runs KCC cmd through a python function for easy use.
+
+
+# Requirements
+- Kindle Comic Converter (installed through pip)
+- kindlegen.exe (for MOBI)
