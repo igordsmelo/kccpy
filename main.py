@@ -3,14 +3,14 @@ from send2trash import send2trash as trash
 from os import listdir
 from shutil import copy
 from time import sleep
-from utils.windows_tools import notification
+from utils.windows_tools import notification #todo: import this from DailyTasks
+
 
 ############################################################ RUN THIS FIRST, TO GET THE FILES AND FOLDERS TO CONVERT
-
-dir = r"D:\Users\Igor\Documents\Mangas\Witch Hat Atelier (Digital) (danke-Empire)"
-def list_manga_files(dir, exclude_format='MOBI'):
+def list_manga_files(fldr_pth, exclude_format='MOBI'):
     from os import listdir
-    return [f"{dir}\\{f}" for f in listdir(dir) if exclude_format.lower() not in f]
+    return [f"{fldr_pth}\\{f}" for f in listdir(fldr_pth) if exclude_format.lower() not in f]
+
 
 ############################################################ RUN THIS SECOND, TO CONVERT THEM
 def make_manga(file, format='MOBI', output=None, fname=None, delete_original=True):
@@ -22,6 +22,7 @@ def make_manga(file, format='MOBI', output=None, fname=None, delete_original=Tru
         trash(file)
 
 
+############################################################ PERSONAL WORKFLOW
 ############################################################ RUN THIS THIRD, TO GET THE FILES ON KINDLE
 def send_to_kindle(file, kindle_dir="E:\\", delete_original=True):
     try:
@@ -41,36 +42,19 @@ def send_to_kindle(file, kindle_dir="E:\\", delete_original=True):
         pass
 
 
-# file = r"D:\Users\Igor\Documents\Mangas\Witch Hat Atelier (Digital) (danke-Empire)\Witch Hat Atelier v03 (2019) (Digital) (danke-Empire).cbz"
-# make_manga(file, output=r"C:\Users\Igor\Desktop")
-#
-#
-# for f in list_manga_files(dir):
-#     make_manga(f)
-
-# for f in list_manga_files(dir, exclude_format='CBZ'):
-#     if '.mobi' in f:
-#         send_to_kindle(f)
-
 import os
 path = r"D:\Users\Igor\Documents\Sync\Manga"
 paths = [f"{path}\\{p}" for p in os.listdir(path) if os.path.isdir(f"{path}\\{p}")]
 for p in paths:
     for manga in os.listdir(p):
-        manga_chapters = ''
         pth = f"{p}\\{manga}"
-        # print(pth)
         if os.path.isdir(pth):
             chapters = os.listdir(pth)
-            chapters.sort()
+            chapters.sort()  # tries to sort list alphabetically. Doesn't work perfectly. #todo: fix it.
             mobi_name = f"{manga} {chapters[0]}-{chapters[-1]}"
             if any('cbz' in c for c in chapters) or any('_tmp' in c for c in chapters):
                 print(f'haha {manga} is wrong')
             else:
                 print(f'converting {manga}')
                 make_manga(pth, fname=mobi_name)
-
-
-
-
-    # print(f"{b[0]}, {b[-1]}")
+############################################################
