@@ -8,8 +8,6 @@ import sys
 
 sys.path.append(r'D:\Users\Igor\Documents\MEGA\Programming\Projects\DailyTasks')
 
-from utils.windows_tools import notification  # todo: import this from DailyTasks
-
 
 ############################################################ RUN THIS FIRST, TO GET THE FILES AND FOLDERS TO CONVERT
 def list_manga_files(fldr_pth, exclude_format='MOBI'):
@@ -22,7 +20,6 @@ def make_manga(file, format='MOBI', output=None, fname=None, delete_original=Tru
     output = f'--output="{output}" ' if output else ''
     filename = f'--title="{fname}.{format.lower()}" ' if fname else ''
     call(f'kcc-c2e --profile=K578 -m --format={format} {filename} {output}"{file}"')
-    notification('manga converted')
     if delete_original:
         trash(file)
 
@@ -38,12 +35,11 @@ def send_to_kindle(file, kindle_dir="E:\\", delete_original=True):
         ############################################################## sends file to kindle
         if all(x in a for x in kindle):
             copy(file, fr"{kindle_dir}documents")
-            notification('file sent to kindle')
             sleep(3)
         if delete_original:
             trash(file)
     except FileNotFoundError:
-        notification('file not found')
+        print('file not found')
         pass
 
 ############################################################
