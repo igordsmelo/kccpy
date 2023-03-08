@@ -43,7 +43,7 @@ def send_to_kindle(file, kindle_dir="E:\\", delete_original=True):
         pass
 
 ############################################################
-
+test = 'hi
 def main():
     from os.path import isdir  # checks if folder exists.
     from os import listdir  # gets files in dir.
