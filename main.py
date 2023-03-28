@@ -1,4 +1,3 @@
-import sys
 from os import listdir
 from shutil import copy
 from subprocess import call
@@ -6,7 +5,8 @@ from time import sleep
 
 from send2trash import send2trash as trash
 
-sys.path.append(r'D:\Users\Igor\Documents\MEGA\Programming\Projects\DailyTasks')
+
+# sys.path.append(r'D:\Users\Igor\Documents\MEGA\Programming\Projects\DailyTasks')
 
 
 ############################################################ RUN THIS FIRST, TO GET THE FILES AND FOLDERS TO CONVERT
