@@ -1,10 +1,10 @@
-from subprocess import call
-from send2trash import send2trash as trash
+import sys
 from os import listdir
 from shutil import copy
+from subprocess import call
 from time import sleep
 
-import sys
+from send2trash import send2trash as trash
 
 sys.path.append(r'D:\Users\Igor\Documents\MEGA\Programming\Projects\DailyTasks')
 
@@ -54,7 +54,7 @@ def main():
             pth = f"{p}\\{manga}"
             if isdir(pth):
                 chapters = listdir(pth)
-                chapters.sort()  # tries to sort list alphabetically. Doesn't work perfectly. #todo: fix it.
+                chapters.sort()  # tries to sort list alphabetically. Doesn't work perfectly. #TODO: fix it.
                 mobi_name = f"{manga} {chapters[0]}-{chapters[-1]}"
                 if any('cbz' in c for c in chapters) or any('_tmp' in c for c in chapters):
                     print(f'haha {manga} is wrong')
