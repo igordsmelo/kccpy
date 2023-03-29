@@ -5,9 +5,8 @@ from time import sleep
 
 from send2trash import send2trash as trash
 
-
 # sys.path.append(r'D:\Users\Igor\Documents\MEGA\Programming\Projects\DailyTasks')
-
+a
 
 ############################################################ RUN THIS FIRST, TO GET THE FILES AND FOLDERS TO CONVERT
 def list_manga_files(fldr_pth, exclude_format='MOBI'):
