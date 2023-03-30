@@ -5,8 +5,8 @@ from time import sleep
 
 from send2trash import send2trash as trash
 
+
 # sys.path.append(r'D:\Users\Igor\Documents\MEGA\Programming\Projects\DailyTasks')
-a
 
 ############################################################ RUN THIS FIRST, TO GET THE FILES AND FOLDERS TO CONVERT
 def list_manga_files(fldr_pth, exclude_format='MOBI'):
@@ -15,13 +15,12 @@ def list_manga_files(fldr_pth, exclude_format='MOBI'):
 
 
 ############################################################ RUN THIS SECOND, TO CONVERT THEM
-def make_manga(file, format='MOBI', output=None, fname=None, delete_original=True):
+def make_manga(file, ext='MOBI', output=None, fname=None, delete_original=True):
     output = f'--output="{output}" ' if output else ''
-    filename = f'--title="{fname}.{format.lower()}" ' if fname else ''
-    call(f'kcc-c2e --profile=K578 -m --format={format} {filename} {output}"{file}"')
+    filename = f'--title="{fname}.{ext.lower()}" ' if fname else ''
+    call(f'kcc-c2e --profile=K578 -m --format={ext} {filename} {output}"{file}"')
     if delete_original:
         trash(file)
-
 
 ############################################################ PERSONAL WORKFLOW
 ############################################################ RUN THIS THIRD, TO GET THE FILES ON KINDLE
