@@ -1,17 +1,6 @@
 from utils.utils import make_manga
 
 
-# sys.path.append(r'D:\Users\Igor\Documents\MEGA\Programming\Projects\DailyTasks')
-
-############################################################ RUN THIS FIRST, TO GET THE FILES AND FOLDERS TO CONVERT
-
-
-############################################################ RUN THIS SECOND, TO CONVERT THEM
-
-############################################################ PERSONAL WORKFLOW
-############################################################ RUN THIS THIRD, TO GET THE FILES ON KINDLE
-
-############################################################
 
 def main():
     from os.path import isdir  # checks if folder exists.

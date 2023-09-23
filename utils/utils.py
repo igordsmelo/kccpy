@@ -6,11 +6,14 @@ from time import sleep
 from send2trash import send2trash as trash
 
 
-def list_manga_files(fldr_pth, exclude_format='MOBI'):
-    from os import listdir
+# sys.path.append(r'D:\Users\Igor\Documents\MEGA\Programming\Projects\DailyTasks')
+
+############################################################ RUN THIS FIRST, TO GET THE FILES AND FOLDERS TO CONVERT
+def list_manga_files(fldr_pth, exclude_format='MOBI') -> list:
     return [f"{fldr_pth}\\{f}" for f in listdir(fldr_pth) if exclude_format.lower() not in f]
 
 
+############################################################ RUN THIS SECOND, TO CONVERT THEM
 def make_manga(file, ext='MOBI', output=None, fname=None, delete_original=True):
     output = f'--output="{output}" ' if output else ''
     filename = f'--title="{fname}.{ext.lower()}" ' if fname else ''
@@ -19,6 +22,8 @@ def make_manga(file, ext='MOBI', output=None, fname=None, delete_original=True):
         trash(file)
 
 
+############################################################ PERSONAL WORKFLOW
+############################################################ RUN THIS THIRD, TO GET THE FILES ON KINDLE
 def send_to_kindle(file, kindle_dir="E:\\", delete_original=True):
     try:
         ############################################################# check if e\documents exist
@@ -34,3 +39,4 @@ def send_to_kindle(file, kindle_dir="E:\\", delete_original=True):
     except FileNotFoundError:
         print('file not found')
         pass
+############################################################
