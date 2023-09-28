@@ -1,4 +1,4 @@
-from utils.utils import make_manga
+from script_kcc_utils import make_manga
 
 
 
