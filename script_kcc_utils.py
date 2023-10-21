@@ -10,11 +10,25 @@ from send2trash import send2trash as trash
 
 ############################################################ RUN THIS FIRST, TO GET THE FILES AND FOLDERS TO CONVERT
 def list_manga_files(fldr_pth, exclude_format='MOBI') -> list:
+    """
+
+    :param fldr_pth:
+    :param exclude_format:
+    :return:
+    """
     return [f"{fldr_pth}\\{f}" for f in listdir(fldr_pth) if exclude_format.lower() not in f]
 
 
 ############################################################ RUN THIS SECOND, TO CONVERT THEM
 def make_manga(file, ext='MOBI', output=None, fname=None, delete_original=True):
+    """
+
+    :param file:
+    :param ext:
+    :param output:
+    :param fname:
+    :param delete_original:
+    """
     output = f'--output="{output}" ' if output else ''
     filename = f'--title="{fname}.{ext.lower()}" ' if fname else ''
     call(f'kcc-c2e --profile=K578 -m --format={ext} {filename} {output}"{file}"')
@@ -25,6 +39,12 @@ def make_manga(file, ext='MOBI', output=None, fname=None, delete_original=True):
 ############################################################ PERSONAL WORKFLOW
 ############################################################ RUN THIS THIRD, TO GET THE FILES ON KINDLE
 def send_to_kindle(file, kindle_dir="E:\\", delete_original=True):
+    """
+
+    :param file:
+    :param kindle_dir:
+    :param delete_original:
+    """
     try:
         ############################################################# check if e\documents exist
         a = listdir(kindle_dir)
