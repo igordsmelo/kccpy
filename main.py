@@ -23,12 +23,14 @@ def main(*files):
                     print('ZIP created. Converting to .MOBI now:\n\n')
                     TEMP_FILE = f'{TEMP}.zip'
                     ###
+                    # TODO: it doesnt inherit the name, check to see if it can be done.
                     kcc.make_manga(TEMP_FILE)
                 # FOR CBZ, RAR AND ZIP FILES...
                 elif os.path.isfile(file) and any(ext in file for ext in ['.cbz', '.rar', '.zip']):
                     TEMP_FILE = f'{TEMP}.{FILE_NAME.split(".")[-1]}'  # KCCPY_TEMP.cbz, KCCPY_TEMP.rar or KCCPY_TEMP.ZIP
                     shutil.copy(file, TEMP_FILE)
                     ###
+                    # TODO: it doesnt inherit the name, check to see if it can be done.
                     kcc.make_manga(TEMP_FILE)
                 ###
                 try:
