@@ -1,7 +1,5 @@
 # KCCpy
-- Simple wrapper for [KCC](https://github.com/ciromattia/kcc)'s comic conversion.
-
-This script is a wrapper for [KindleComicConverter, also known as KCC](https://github.com/ciromattia/kcc), a Python app to convert comic/manga files or folders to EPUB, MOBI or CBZ. 
+ A wrapper for [KindleComicConverter, also known as KCC](https://github.com/ciromattia/kcc), a Python app to convert comic/manga files or folders to EPUB, MOBI or CBZ. 
 
 # Credits:
 - [Ciro Mattia Gonano](https://github.com/ciromattia)
