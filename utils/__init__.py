@@ -39,7 +39,7 @@ def make_comic(*files):
     :param files: path to folders or that will, by default, be turned in .MOBI files.
     """
     for file in files:
-        print(file)
+        # print(file)
         file = str(file)
         FILE_PARENT = '\\'.join(file.split('\\')[:-1])  # B:\3\Mangas\ワンピース 第01-94巻 [ONE PIECE vol 01-94]
         FILE_NAME = file.split('\\')[-1].split('.')[0]  # [尾田栄一郎] ONE PIECE 第01巻
