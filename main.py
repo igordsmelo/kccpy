@@ -1,7 +1,7 @@
 import kccpy.utils as kcc
 
 
-def main():
+def main() -> None:
     file = input('Paste path to file here')
     kcc.make_comic(file)
     print('Conversion finished. Enjoy your reading!')
