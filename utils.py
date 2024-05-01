@@ -17,7 +17,7 @@ def list_files(fldr_pth, exclude_format='MOBI') -> list:
 
 
 ############################################################ RUN THIS SECOND, TO CONVERT THEM
-def convert(*files, ext='MOBI', output=None, fname=None, delete_original=False):
+def convert(*files, ext='MOBI', output=None, fname=None, delete_original: bool = False) -> None:
     """
     Converts .CBZ/.CBR files to Kindle-adapted .MOBI file (by default). Check KCC's support for other formats.
     :param file:
