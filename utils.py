@@ -6,21 +6,16 @@ from send2trash import send2trash as trash
 
 
 ############################################################ RUN THIS FIRST, TO GET THE FILES AND FOLDERS TO CONVERT
-def list_files(fldr_pth, exclude_format='MOBI') -> list:
-    """
-    List manga sub-folders/files in folder, returning them in a list. Excludes .MOBI files by default.
-    :param fldr_pth:
-    :param exclude_format:
-    :return:
-    """
+def list_files(fldr_pth: str, exclude_format: str ='MOBI') -> list[str]:
+    """List manga sub-folders/files in folder, returning them in a list. Excludes .MOBI files by default."""
     return [f"{fldr_pth}\\{f}" for f in os.listdir(fldr_pth) if exclude_format.lower() not in f]
 
 
 ############################################################ RUN THIS SECOND, TO CONVERT THEM
-def convert(*files, ext='MOBI', output=None, fname=None, delete_original: bool = False) -> None:
+def convert(*files: list[str], ext: str = 'MOBI', output=None, fname=None, delete_original: bool = False) -> None:
     """
     Converts .CBZ/.CBR files to Kindle-adapted .MOBI file (by default). Check KCC's support for other formats.
-    :param file:
+    :param files: list to filepaths that will be converted.
     :param ext:
     :param output:
     :param fname:
