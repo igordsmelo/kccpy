@@ -36,7 +36,7 @@ class KCCPY:
         self.files: str or list = None
         self.files_directory: str = None
 
-    def get_files(self, folder_path, exclude_format='MOBI') -> list:
+    def get_files(self, folder_path, exclude_format='MOBI') -> None:
         """
         List manga sub-folders/files in folder, returning them in a list. Excludes .MOBI files by default.
         :param folder_path: path to files or subfolders.
@@ -46,7 +46,7 @@ class KCCPY:
         self.files_directory = folder_path
         self.files = [f"{folder_path}\\{f}" for f in listdir(folder_path) if exclude_format.lower() not in f]
 
-    def convert_to_comic(self, ext='MOBI', output=None, fname=None, delete_original=False):
+    def convert_to_comic(self, ext='MOBI', output=None, fname=None, delete_original=False) -> None:
         """
         Converts .CBZ/.CBR files to Kindle-adapted .MOBI file (by default). Check KCC's support for other formats.
         """
